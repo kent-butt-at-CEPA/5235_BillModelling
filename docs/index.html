@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Illustrative UK energy bill dashboard</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <div>
+        <div class="brand-mark">
+          <img src="./assets/cepa-logo.png" alt="CEPA" class="cepa-logo">
+        </div>
+        <p class="eyebrow">Bid visualisation concept | fake data | static client demo</p>
+        <h1>UK Household Bill Outlook</h1>
+        <p class="intro">
+          Illustrative dashboard showing how wholesale and retail price assumptions could flow through to
+          consumer archetype bills across UK regions and forecast years.
+        </p>
+      </div>
+      <div class="hero-note">
+        <p id="datasetNote">Loading data...</p>
+        <p class="small-print">Use the controls to switch archetypes, regions, and forecast year.</p>
+      </div>
+    </header>
+
+    <section class="controls card">
+      <div class="control">
+        <label for="archetypeSelect">Archetype</label>
+        <select id="archetypeSelect"></select>
+      </div>
+      <div class="control">
+        <label for="regionSelect">Region focus</label>
+        <select id="regionSelect"></select>
+      </div>
+      <div class="control control-wide">
+        <div class="range-label">
+          <label for="yearSlider">Forecast year</label>
+          <span id="yearValue">-</span>
+        </div>
+        <input id="yearSlider" type="range" min="2025" max="2032" step="1" value="2028">
+      </div>
+      <div class="control summary-control">
+        <span class="summary-label">Selected scenario</span>
+        <strong id="scenarioTitle">-</strong>
+        <span id="scenarioDescription">-</span>
+      </div>
+    </section>
+
+    <section class="kpi-grid">
+      <article class="kpi card">
+        <span class="kpi-label">Annual bill</span>
+        <strong id="annualBillValue">-</strong>
+        <p id="annualBillMeta">-</p>
+      </article>
+      <article class="kpi card">
+        <span class="kpi-label">Change versus 2025</span>
+        <strong id="deltaValue">-</strong>
+        <p id="deltaMeta">-</p>
+      </article>
+      <article class="kpi card">
+        <span class="kpi-label">Peak monthly bill</span>
+        <strong id="peakMonthValue">-</strong>
+        <p id="peakMonthMeta">-</p>
+      </article>
+      <article class="kpi card">
+        <span class="kpi-label">Relative to UK average</span>
+        <strong id="benchmarkValue">-</strong>
+        <p id="benchmarkMeta">-</p>
+      </article>
+    </section>
+
+    <section class="chart-grid">
+      <article class="panel card">
+        <div class="panel-header">
+          <div>
+            <h2>Annual bill trajectory</h2>
+            <p>Selected region versus UK average for the current archetype.</p>
+          </div>
+        </div>
+        <div id="lineChart" class="chart"></div>
+      </article>
+
+      <article class="panel card">
+        <div class="panel-header">
+          <div>
+            <h2>Bill composition</h2>
+            <p>Stacked annual bill breakdown for the selected year.</p>
+          </div>
+        </div>
+        <div id="barChart" class="chart"></div>
+      </article>
+
+      <article class="panel card heatmap-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Monthly bill heatmap</h2>
+            <p>Rows show regions and columns show months for the selected archetype and forecast year.</p>
+          </div>
+          <div id="heatmapLegend" class="legend"></div>
+        </div>
+        <div id="heatmapChart" class="chart heatmap"></div>
+      </article>
+
+      <article class="panel card note-panel">
+        <div class="panel-header">
+          <div>
+            <h2>How this concept is framed</h2>
+            <p>Designed to feel like an R Shiny-style analytical dashboard, but lightweight and portable.</p>
+          </div>
+        </div>
+        <div class="note-copy">
+          <p>
+            This demo is intentionally synthetic. It illustrates how you could combine price inputs,
+            consumer archetypes, regional adjustments, and forecast years into a single client-facing view.
+          </p>
+          <p>
+            The linked interactions are the key idea: changing the archetype or region updates the headline
+            KPIs, the annual line chart, the stacked bill composition, and the monthly heatmap.
+          </p>
+          <p>
+            In a production build, the same scaffolding could be connected to real tariff assumptions,
+            network charges, policy costs, weather normalisation, and household consumption profiles.
+          </p>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
