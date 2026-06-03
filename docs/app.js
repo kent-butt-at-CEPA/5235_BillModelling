@@ -246,11 +246,13 @@ function renderLineChart() {
     });
 
     const last = points[points.length - 1];
+    const labelX = Math.max(margin.left + 78, last.x - 12);
     const legendText = svgEl("text", {
-      x: last.x + 10,
+      x: labelX,
       y: last.y + (line.dashed ? 16 : -10),
       class: "annotation",
       fill: line.color,
+      "text-anchor": "end",
     });
     legendText.textContent = line.label;
     svg.appendChild(legendText);

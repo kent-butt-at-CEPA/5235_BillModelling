@@ -346,10 +346,22 @@ input[type="range"]:focus {
   gap: 20px;
 }
 
+.note-copy-single {
+  grid-template-columns: 1fr;
+}
+
 .note-copy p {
   margin: 0;
   line-height: 1.7;
   color: var(--muted);
+}
+
+.bid-disclaimer {
+  font-size: 1rem;
+}
+
+.bid-disclaimer strong {
+  color: var(--cepa-blue);
 }
 
 svg {
